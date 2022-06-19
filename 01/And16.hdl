@@ -1,0 +1,51 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And16.hdl
+
+/**
+ * 16-bit bitwise And:
+ * for i = 0..15: out[i] = (a[i] and b[i])
+ */
+
+CHIP And16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    Nand(a=a[0],b=b[0],out=a0);
+    Nand(a=a[1],b=b[1],out=a1);
+    Nand(a=a[2],b=b[2],out=a2);
+    Nand(a=a[3],b=b[3],out=a3);
+    Nand(a=a[4],b=b[4],out=a4);
+    Nand(a=a[5],b=b[5],out=a5);
+    Nand(a=a[6],b=b[6],out=a6);
+    Nand(a=a[7],b=b[7],out=a7);
+    Nand(a=a[8],b=b[8],out=a8);
+    Nand(a=a[9],b=b[9],out=a9);
+    Nand(a=a[10],b=b[10],out=a10);
+    Nand(a=a[11],b=b[11],out=a11);
+    Nand(a=a[12],b=b[12],out=a12);
+    Nand(a=a[13],b=b[13],out=a13);
+    Nand(a=a[14],b=b[14],out=a14);
+    Nand(a=a[15],b=b[15],out=a15);
+
+    Not16(
+    in[0]=a0, 
+    in[1]=a1, 
+    in[2]=a2,
+    in[3]=a3,
+    in[4]=a4,
+    in[5]=a5,
+    in[6]=a6,
+    in[7]=a7,
+    in[8]=a8,
+    in[9]=a9,
+    in[10]=a10,
+    in[11]=a11,
+    in[12]=a12,
+    in[13]=a13,
+    in[14]=a14,
+    in[15]=a15,
+    out=out);
+}
